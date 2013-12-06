@@ -1,0 +1,103 @@
+﻿fit_Diet接口文档
+	
+url:192.168.0.111:5555
+
+
+注册：
+	url:/regist
+	POSR参数：
+		name     		jaa			string
+		password		123456		string
+	
+	Json返回：
+		state			1			int
+		error			OK			string
+		userID		1			int
+	
+修改密码：
+	url:/pwdchange
+	POSR参数：
+		userName     	jaa			int
+		psded			12345645		string
+		psd			123456		string
+
+登陆：
+	url:/login
+	POSR参数：
+		userName     	jaa			string
+		password		123456		string
+
+
+获取“一键做菜”:
+	url:/cookdishlist
+	POST参数：
+		userID		1			int
+
+获取“我的最爱”:
+	url:/myfavoritelist
+	POST参数：
+		userID		1			int
+
+获取“烹饪日记”:
+	url:/cookdiarylist
+	POST参数：
+		userID		1			int
+
+获取“我的菜篮”:
+	url:/mybasketlist
+	POST参数：
+		userID		1			int
+
+
+获取“菜的详细信息”:
+	url:/getfooddetail
+	POST参数：
+		foodID		1			int
+
+
+
+获取“个人信息”:
+	url:/getuserinfo
+	POST参数：
+		userID
+	
+设置“个人信息”:
+	url:/setuserinfo
+	POST参数：
+		userID		1
+		userName		jww
+		sex			男
+		birthday		1991-10-16
+		workCategory	1
+		healthStr		1111111
+	参数解释：
+		healthStr:表示各个健康状况的字段依次表示，是否健康，是否肥胖，是否高血压，是否高血脂，是否心脏病，是否糖尿病，是否贫血。在字符串中，1表示是，0表示否
+
+
+#获取某用户 本月“某大类的五周含量“
+	url:/monthnutrition
+	POST参数：
+		className
+		userID
+		month
+
+
+#获取某用户 本周“某大类的含量“
+	url:/weeknutrition
+	POST参数：
+		className   
+		userID
+		week
+
+
+#获取某用户 今日各类营养元素的含量“
+	url:/todaynutrition
+	POST参数：
+		userID
+		day
+
+#获取某用户 今日各大类有无摄取“
+	url:/classnutrition
+	POST参数：
+		userID
+		day
